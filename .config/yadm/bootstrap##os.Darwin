@@ -1,0 +1,24 @@
+#!/bin/bash
+# yadm bootstrap configuration for Darwin machines - MacOS
+
+# install homebrew if it is not installed
+if ! command -v brew >/dev/null 2>&1; then
+  echo "Installing homebrew..."
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+fi
+
+# Updating homebrew bundles
+if [ -f "$HOME/Brewfile" ]; then
+  echo "Removing untracked homebrew bundles..."
+  (cd $HOME && brew bundle --force cleanup)
+  echo "Installing homebrew bundles..."
+  (cd $HOME && brew bundle)
+  brew update && brew upgrade
+  echo "Removing old homebrew bundles..."
+  brew autoremove
+  brew cleanup -s && rm -rf "$(brew --cache)"
+fi
+
+# set yadm repository origin url
+source ~/.config/yadm/bootstrap.d/setOriginURL.sh
+

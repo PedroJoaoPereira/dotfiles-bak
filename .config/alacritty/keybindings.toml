@@ -1,0 +1,13 @@
+# custom bindings
+
+[keyboard]
+bindings = [
+  { key = "V", mods = "Control|Shift", action = "Paste" }, # Paste
+  { key = "C", mods = "Control|Shift", action = "Copy" }, # Copy
+]
+
+[mouse]
+bindings = [
+  { mouse = "Right", action = "Paste" }, # Right click to paste
+]
+

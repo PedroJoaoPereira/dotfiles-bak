@@ -1,0 +1,6 @@
+# customized properties on all login shells
+# this is is sourced by /bin/bash
+# it is used to set up the environment
+# by sourcing the .bashrc file
+source ~/.bashrc
+
